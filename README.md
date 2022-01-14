@@ -7,8 +7,8 @@ Esta aplicación utiliza los datos desde [mindicador.cl](https://mindicador.cl/)
 ## Instalación
 
 Este proyecto esta basado en el framework Angular V13.
-### Requieres tener instalado [mindicador.cl](https://nodejs.org/) para su edición.
-### Luego debes instalar Angular con npm. 
+Requieres tener instalado [Node.js](https://nodejs.org/) para su edición.
+### Luego de instalar Node debes instalar Angular con npm. 
 
 ```bash
 npm install @angular/cli
@@ -29,6 +29,15 @@ npm install
 ```bash
 ng serve
 ```
+
+## Publicar en tu host
+Para publicar la aplicación en tu host debes generar los archivos estaticos
+
+```bash
+ng build --prod
+```
+
+Esto creara una carpeta dist/list-indicators la cual debes subir en tu server.
 
 
 
