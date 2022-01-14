@@ -1,0 +1,97 @@
+<div class="container-fluid">
+
+  <div class="card">
+    <div class="card-header">
+      <h2><strong>Indicadores Económicos Diarios</strong></h2>
+      <h4 class="text-secondary text-center"> {{ fechaActual || 'Fecha' | date:'dd/MM/yyyy'}} </h4>
+    </div>
+    <div class="card-body">
+      <!-- Button trigger modal --> 
+
+      <table class="table table-dark table-striped table-borderless table-hover">
+        <!-- <thead>
+          <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead> -->
+        <tbody>
+          <tr *ngFor="let indicator of indicatorsList;let indice=index">            
+            <td *ngIf="indicator[0] !== 'version' && indicator[0] !== 'autor' && indicator[0] !== 'fecha'"><a (click)="indicatorHistory(indicator[1])" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><h6>{{indicator[1].nombre}}</h6><p><span *ngIf="indicator[1].unidad_medida ==='Pesos'">CLP$ </span><span *ngIf="indicator[1].unidad_medida ==='Dólar'">USD$ </span>{{indicator[1].valor | number}}<span *ngIf="indicator[1].unidad_medida ==='Porcentaje'"> %</span></p><i [id]="indice" (click)="indicatorInfo($event)" class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></a></td>            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal Info -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel"> {{ nombreIndicador || 'Nombre'}} </h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <h1 class="text-center text-primary fw-bold"><span *ngIf="unidadMedidaIndicador ==='Pesos'">CLP$ </span><span *ngIf="unidadMedidaIndicador ==='Dólar'">USD$ </span>{{valorIndicador | number}}<span *ngIf="unidadMedidaIndicador ==='Porcentaje'"> %</span></h1>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"><strong>Fecha</strong></span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ fechaIndicador || '01/01/2022' | date:'dd/MM/yyyy'}}" disabled>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"><strong>Unidad de medida</strong></span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ unidadMedidaIndicador || 'Unidad de medida'}}" disabled>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"><strong>Código</strong></span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ codigoIndicador || 'Código'}}" disabled>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal History -->
+ <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel">Histórico Mensual<br>{{ nombreIndicador || 'Nombre'}}</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <table class="table table-dark table-striped table-borderless table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of indicatorHistorySelected;let indice=index">            
+              <td> {{item.fecha | date:'dd/MM/yyyy' }} </td>
+              <td><span *ngIf="unidadMedidaIndicador ==='Pesos'">CLP $ </span><span *ngIf="unidadMedidaIndicador ==='Dólar'">USD$ </span>{{item.valor | number}}<span *ngIf="unidadMedidaIndicador ==='Porcentaje'"> %</span></td>           
+            </tr>
+          </tbody>
+        </table>        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+      </div>
+    </div>
+  </div>
+</div>

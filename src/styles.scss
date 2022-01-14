@@ -1,0 +1,41 @@
+/* List Indicators app main styles */
+//@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+$primary: #acd125;
+$secondary:#6b0999;
+$dark: #333333;
+$white: #dddddd;
+
+$card-cap-bg: rgba($primary, .6);
+$card-bg: rgba($dark, .85);
+$card-color: $white;
+
+$color-1:var($secondary);
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+/* * {
+    margin: 0px !important;
+    box-sizing: border-box !important;
+} */
+
+html, body {
+    font-size: 14px !important;
+    background-color: linear-gradient(#f5e8b1, #e44433);
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.h1, h1 {
+    font-size:28px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: condensed;
+}
+
+.ha, h2 {
+    font-size:20px!important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.h3, h3 {
+    font-size:18px!important;
+    font-family: 'Roboto', sans-serif !important;
+}

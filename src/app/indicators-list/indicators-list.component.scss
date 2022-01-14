@@ -1,0 +1,92 @@
+.container-fluid{
+    position: relative;    
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #e95500 url('../../assets/backgrounds/bg-1.jpg') no-repeat fixed center top; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size:cover;
+    padding: 5% !important;
+
+    h4, .h4 {
+        font-size: calc(1.275rem + 0.3vw);
+        padding: 0px;
+        margin: 0px !important;
+    }
+
+    p {
+        color: #00aaff;
+        
+    }
+
+    i {
+        position: relative;
+        right: 0px;
+        top: -45px;
+        margin: 0px 10px -20px 0px !important;
+        color: #00aaff;
+        float: right;
+        transform: scale(1.3);
+
+        &:hover {
+            color: #6dceff;
+            transform: scale(1.5);
+        }
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 0.7rem 1.5rem 0rem 1.5rem;
+        &:hover {
+            color: #6dceff;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    }
+}
+
+.modal {
+    .modal-dialog {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .modal-content{
+            background-color: rgba(#333333, .95) !important;
+            position: relative !important;
+            margin-top: 10vh !important;
+            height: 80vh !important;
+
+            .modal-header {
+                color: #6dceff;
+                border-bottom: 1px solid #6dceff;
+               
+            }
+
+            .modal-body {
+                color: #6dceff;
+                max-height: 80vh;
+                overflow: scroll;
+                .input-group-text {
+                    width: 45% !important;
+                    background-color: #999999;
+                }
+                input {
+                    text-align: end !important;
+                }    
+               
+            }
+
+            .modal-footer {
+                color: #6dceff;
+                border-top: 1px solid #6dceff;
+               
+            }
+
+        }
+    
+    }
+
+}
+

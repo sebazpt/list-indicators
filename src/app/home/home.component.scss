@@ -1,0 +1,15 @@
+.container-fluid{
+    position: relative;    
+    height: calc(100vh - 56.34px) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e95500 url('../../assets/backgrounds/bg-1.jpg') no-repeat fixed center top; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size:cover;
+}
+
+.card {
+    margin: 0 auto !important;
+}
